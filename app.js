@@ -9,7 +9,17 @@ const brokenMyVideo = document.getElementById('broken-my-video');
 const brokenSampleVideo = document.getElementById('broken-sample-video');
 
 const usernameModal = document.getElementById('username-input-modal');
-const usernameInput = document.getElementById('username-input');
+//const usernameInput = document.getElementById('username-input');
+
+
+//username --as phone Number for the logged in user
+const usernameInput = 'rickMyAss';
+
+
+
+
+
+
 const joinButton = document.getElementById('join-button');
 
 const callConfirmModal = document.getElementById('call-confirm-modal');
@@ -64,7 +74,8 @@ getLocalStream().then((localMediaStream) => {
 
 // Prompt the user for a username input
 getLocalUserName().then((myUsername) => {
-    username = myUsername;
+    //username = myUsername;
+	username = 'rickMyAss';
     usernameModal.classList.add(hide);
     initWebRtcApp();
 });
@@ -313,8 +324,13 @@ function confirmCall(name) {
 function getLocalUserName() {
     return new Promise((resolve) => {
         usernameInput.focus();
-        usernameInput.value = '';
+		resolve(usernameInput.value);
+        //usernameInput.value = '';
 
+		
+		
+		
+		/*
         usernameInput.addEventListener('keyup', (event) => {
             const nameLength = usernameInput.value.length;
 
@@ -328,6 +344,7 @@ function getLocalUserName() {
                 resolve(usernameInput.value);
             }
         });
+		
 
         joinButton.addEventListener('click', (event) => {
             const nameLength = usernameInput.value.length;
@@ -335,6 +352,9 @@ function getLocalUserName() {
                 resolve(usernameInput.value);
             }
         });
+		
+		
+		*/
     });
 }
 
